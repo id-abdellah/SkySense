@@ -1,0 +1,40 @@
+.generalSettings {
+    padding: 20px;
+    background-color: var(--surface);
+    border-radius: var(--radius-large);
+    display: grid;
+    gap: 15px;
+
+    >div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .title {
+        color: var(--on-surface);
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    /* darkmode switch are in global styles */
+
+    .lang {
+        select {
+            display: block;
+            position: relative;
+            background-color: var(--bg);
+            color: var(--on-bg);
+            font-size: 12px;
+            font-weight: 500;
+            border: none;
+            border-radius: var(--radius-small);
+            padding: 6px 6px 6px 6px;
+            outline: none;
+
+            option:checked {
+                background-color: var(--surface);
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "navWeather": "الطقس",
+    "navCities": "المفضلة",
+    "navMap": "الخريطة",
+    "navSettings": "الاعدادات",
+
+    "searchInputPlacholder": "ابحث عن مدينة",
+    "searchNoData": "لا بيانات",
+
+    "locationBtn": "موقعك الحالي",
+
+    "geolocationSupport": "هذا المتصفح لا يدعم نظام تحديد الموقع الجغرافي",
+
+    "settings_units": "وحدات القياس",
+    "settings_units_temp": "درجة الحرارة",
+    "settings_units_wind": "سرعة الرياح",
+    "settings_units_pres": "الضغط",
+    "settings_units_dist": "مسافة الرؤية",
+
+    "settings_general": "عام",
+    "settings_general_darkMode": "الوضع المظلم",
+    "settings_general_lang": "اللغة",
+
+    "settings_save": "احفظ الاعدادات"
+
+}

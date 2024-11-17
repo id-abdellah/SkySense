@@ -1,0 +1,25 @@
+{
+    "navWeather": "Weather",
+    "navCities": "My Cities",
+    "navMap": "Map",
+    "navSettings": "Settings",
+
+    "searchInputPlacholder": "Search For City",
+    "searchNoData": "No Data",
+
+    "locationBtn": "Current Location",
+
+    "geolocationSupport": "Geolocation is not supported in this browser",
+
+    "settings_units": "Units",
+    "settings_units_temp": "Temperature",
+    "settings_units_wind": "Wind speed",
+    "settings_units_pres": "Pressure",
+    "settings_units_dist": "Distance",
+
+    "settings_general": "General",
+    "settings_general_darkMode": "Dark theme",
+    "settings_general_lang": "Language",
+
+    "settings_save": "Save changes"
+}

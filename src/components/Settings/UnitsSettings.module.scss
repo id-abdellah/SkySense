@@ -1,0 +1,71 @@
+div.unitsSettings {
+    background-color: var(--surface);
+    padding: 20px;
+    border-radius: var(--radius-large);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    .unit {
+        .title {
+            color: var(--on-surface);
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .tabs {
+            background-color: var(--bg);
+            border-radius: var(--radius-small);
+
+            display: grid;
+            grid-auto-flow: column;
+            direction: ltr;
+
+            >div {
+                position: relative;
+                height: 35px;
+                padding: 4px;
+
+                &:not(:last-child):after {
+                    content: "";
+                    position: absolute;
+                    width: 1px;
+                    height: 20px;
+                    background-color: var(--surface);
+                    top: 50%;
+                    right: 0;
+                    translate: 0 -50%;
+                }
+
+                input {
+                    appearance: none;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: var(--radius-small);
+                    cursor: pointer;
+
+                    &:checked {
+                        background-color: var(--surface);
+                    }
+                }
+
+                label {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 11px;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+
+    @media (width > 767px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}

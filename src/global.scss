@@ -1,0 +1,208 @@
+:root {
+    --font-size-small: 0.875rem;
+    --font-size-base: 16px;
+    --font-size-large: 1.25rem;
+    --font-size-xlarge: 1.75rem;
+
+    --radius-small: 4px;
+    --radius-medium: 8px;
+    --radius-large: 16px;
+    --radius-circle: 50%;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    font-family: 'Segoe UI';
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg);
+    color: var(--on-bg);
+    overflow-x: hidden;
+    user-select: none;
+}
+
+body[data-lang="en"] {
+    direction: ltr;
+}
+
+body[data-lang="ar"] {
+    direction: rtl;
+}
+
+image,
+picture,
+canvas,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    display: block;
+    font: inherit;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+
+/* active className when using NavLink */
+
+.active {
+    color: var(--primary) !important;
+}
+
+/* Media Queries. Container */
+
+
+@media (min-width: 1200px) {
+    .container {
+        margin-inline: auto;
+        width: 1100px;
+    }
+}
+
+
+
+/* Themes Palette*/
+
+body[data-theme="dark"] {
+    --bg: #0b131e;
+    --surface: #202b3b;
+    --primary: #c38fff;
+    --secondary: #03dac6;
+
+    --on-bg: #dde0e4;
+    --on-surface: #8a909a;
+    --on-primary: #111;
+    --on-secondary: #111;
+
+    --hover-bg: #101a28;
+    --hover-surface: #293648;
+    --hover-primary: #af6dfa;
+    --hover-secondary: #26e0cd;
+}
+
+body[data-theme="light"] {
+    --bg: #f9f9f9;
+    --surface: #eaeaea;
+    --primary: #6a5acd;
+    --secondary: #20b2aa;
+
+    --on-bg: #222222;
+    --on-surface: #504f4f;
+    --on-primary: #ffffff;
+    --on-secondary: #ffffff;
+
+    --hover-bg: #f1f1f1;
+    --hover-surface: #dcdcdc;
+    --hover-primary: #7a67df;
+    --hover-secondary: #32c2b4;
+}
+
+
+
+
+/* checkbox custom switch */
+.switch {
+    --button-width: 2.2em;
+    --button-height: 1.2em;
+    --toggle-diameter: .8em;
+    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+    --toggle-shadow-offset: 10px;
+    --toggle-wider: 3em;
+    --color-grey: var(--bg);
+    --color-green: var(--primary);
+
+    display: grid;
+    place-content: center;
+    direction: ltr;
+
+    input[type="checkbox"]:checked+.slider {
+        background-color: var(--color-green);
+    }
+
+    input[type="checkbox"]:checked+.slider::after {
+        transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+        box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    input[type="checkbox"]:active+.slider::after {
+        width: var(--toggle-wider);
+    }
+
+    input[type="checkbox"]:checked:active+.slider::after {
+        transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
+    }
+
+    .slider {
+        display: inline-block;
+        width: var(--button-width);
+        height: var(--button-height);
+        background-color: var(--color-grey);
+        border-radius: calc(var(--button-height) / 2);
+        position: relative;
+        transition: 0.3s all ease-in-out;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            width: var(--toggle-diameter);
+            height: var(--toggle-diameter);
+            background-color: var(--surface);
+            border-radius: calc(var(--toggle-diameter) / 2);
+            position: absolute;
+            top: var(--button-toggle-offset);
+            transform: translateX(var(--button-toggle-offset));
+            box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+            transition: 0.3s all ease-in-out;
+        }
+    }
+}

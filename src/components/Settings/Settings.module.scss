@@ -1,0 +1,28 @@
+section.settingsPage {
+    margin-block-start: 30px;
+
+    h2.grTitle {
+        margin-block: 10px;
+    }
+
+    // save settings btn
+    button {
+        margin-top: 10px;
+        background-color: var(--primary);
+        color: var(--on-primary);
+        border-radius: var(--radius-medium);
+        font-weight: 500;
+        font-size: 14px;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            background-color: var(--hover-primary);
+        }
+
+        &:active {
+            scale: .95;
+        }
+    }
+}

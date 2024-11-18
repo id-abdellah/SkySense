@@ -5,6 +5,7 @@ import styles from "./GeneralSettings.module.scss"
 export default function GeneralSettings({ currentSettings, setNewSettings }) {
     const { t, i18n } = useTranslation()
 
+
     function handleThemControle(e) {
         let isChecked = e.currentTarget.checked
         setNewSettings(prev => ({ ...prev, theme: isChecked ? "dark" : "light" }))
@@ -18,7 +19,7 @@ export default function GeneralSettings({ currentSettings, setNewSettings }) {
     return (
         <div className={styles.generalSettings}>
 
-            <div className={styles.themeMod}>
+            <div className={styles.themeMode}>
                 <span className={styles.title}>{t("settings_general_darkMode")}</span>
                 <label className="switch">
                     <input

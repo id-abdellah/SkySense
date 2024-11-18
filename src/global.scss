@@ -27,7 +27,6 @@ body {
     background-color: var(--bg);
     color: var(--on-bg);
     overflow-x: hidden;
-    user-select: none;
 }
 
 body[data-lang="en"] {
@@ -125,6 +124,23 @@ body[data-theme="dark"] {
     --hover-primary: #af6dfa;
     --hover-secondary: #26e0cd;
 }
+
+// body[data-theme="dark"] {
+//     --bg: #121212;
+//     --surface: #1e1e1e;
+//     --primary: #bb86fc;
+//     --secondary: #03dac5;
+
+//     --on-bg: #e0e0e0;
+//     --on-surface: #a1a1a1;
+//     --on-primary: #000;
+//     --on-secondary: #000;
+
+//     --hover-bg: #1a1a1a;
+//     --hover-surface: #2c2c2c;
+//     --hover-primary: #9e6ef3;
+//     --hover-secondary: #29b3ab;
+// }
 
 body[data-theme="light"] {
     --bg: #f9f9f9;

@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./NavContent.module.scss"
-import { faCloud, faGear, faMapLocationDot, faStar, faUmbrella } from "@fortawesome/free-solid-svg-icons";
+import { faCloud, faGear, faMapLocationDot, faMoon, faStar, faSun, faUmbrella } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { settingsActions, useSettingsContext } from "../../context/SettingsContext";
 
 export default function Nav() {
     const { t, i18n } = useTranslation()
+    const { state: { theme }, dispatch } = useSettingsContext()
 
     return (
         <section className={styles.navContent}>
@@ -40,6 +42,18 @@ export default function Nav() {
                     </NavLink>
                 </li>
             </ul>
+
+            <div
+                className={styles.themeToggle}
+                onClick={() => dispatch({ type: settingsActions.CHANGE_THEME })}
+            >
+                {
+                    theme == "dark"
+                        ?
+                        <FontAwesomeIcon icon={faSun} />
+                        : <FontAwesomeIcon icon={faMoon} />
+                }
+            </div>
         </section>
     )
 }

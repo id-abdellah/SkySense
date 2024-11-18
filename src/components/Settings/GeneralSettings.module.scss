@@ -9,13 +9,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        .title {
+            color: var(--on-surface);
+            font-weight: 500;
+            font-size: 13px;
+        }
     }
 
-    .title {
-        color: var(--on-surface);
-        font-weight: 500;
-        font-size: 13px;
-    }
 
     /* darkmode switch are in global styles */
 
@@ -35,6 +36,12 @@
             option:checked {
                 background-color: var(--surface);
             }
+        }
+    }
+
+    @media (width >=767px) {
+        div.themeMode {
+            display: none;
         }
     }
 }

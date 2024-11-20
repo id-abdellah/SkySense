@@ -25,7 +25,7 @@ const initState = {
     units: {
         temperature: "c", /* c - f - k */
         windSpeed: "ms", /* ms (meter/s) - mih (miles/h) - kmh (kilometers/h) */
-        pressure: "hPa", /* hpa - mmHg - atm */
+        pressure: "hPa", /* hPa - mmHg - atm */
         distance: "meters", /* km - miles */
     },
     theme: "dark",

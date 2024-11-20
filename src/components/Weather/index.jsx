@@ -1,5 +1,13 @@
+import styles from "./index.module.scss"
+import TodaysHighlights from "./TodaysHighlights"
+import Forecast from "./Forecast"
+
 export default function WeatherPage() {
+
     return (
-        <h1>Weather page</h1>
+        <section className={styles.weatherSection}>
+            <TodaysHighlights />
+            <Forecast />
+        </section>
     )
 }

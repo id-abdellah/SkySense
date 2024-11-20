@@ -21,5 +21,14 @@
     "settings_general_darkMode": "Dark theme",
     "settings_general_lang": "Language",
 
-    "settings_save": "Save changes"
+    "settings_save": "Save changes",
+
+    "highlights_airQuality": "Air Quality Index",
+    "highlights_sun": "Sunrise & Sunset",
+    "highlights_sunset": "Sunset",
+    "highlights_sunrise": "Sunrise",
+    "highlights_humidity": "Humidity",
+    "highlights_pressure": "Pressure",
+    "highlights_visibility": "Visibility",
+    "highlights_feels": "Feels Like"
 }

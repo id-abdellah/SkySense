@@ -21,6 +21,15 @@
     "settings_general_darkMode": "الوضع المظلم",
     "settings_general_lang": "اللغة",
 
-    "settings_save": "احفظ الاعدادات"
+    "settings_save": "احفظ الاعدادات",
+
+    "highlights_airQuality": "مؤشر جودة الجو",
+    "highlights_sun": "الغروب & الشروق",
+    "highlights_sunset": "الغروب",
+    "highlights_sunrise": "الشروق",
+    "highlights_humidity": "مستوى الرطوبة",
+    "highlights_pressure": "الضغط",
+    "highlights_visibility": "مسافة الرؤية",
+    "highlights_feels": "تبدو مثل"
 
 }

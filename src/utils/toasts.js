@@ -10,7 +10,8 @@ export function geolocationErrorNotify(errorMessage) {
         id: "geolocation-error",
         style: {
             backgroundColor: "#A04747",
-            color: "white"
+            color: "white",
+            direction: "ltr"
         }
     })
 }
@@ -20,7 +21,8 @@ export function geolocationSuccessNotify() {
         id: "geolocation-success",
         style: {
             backgroundColor: "#557C56",
-            color: "white"
+            color: "white",
+            direction: "ltr"
         }
     })
 }

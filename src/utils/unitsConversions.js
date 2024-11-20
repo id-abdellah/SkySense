@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 /**
  * Celsius to Fahrenheit
  * @param {number} c 
  * @returns number 
  */
 
-export function celsiusToFahrenheit(c) {
+function celsiusToFahrenheit(c) {
     return +((c * (9 / 5)) + 32).toFixed(2)
 }
 
@@ -15,7 +16,7 @@ export function celsiusToFahrenheit(c) {
  * @returns {number}
  */
 
-export function celsiusToKelvin(c) {
+function celsiusToKelvin(c) {
     return +(c + 273.15).toFixed(2)
 }
 
@@ -27,13 +28,12 @@ export function celsiusToKelvin(c) {
  * @returns {number}
  */
 
-export function windSpeedMS(ws, to) {
-    if (to == "mph") {
+function windSpeedMS(ws, to) {
+    if (to == "mih") {
         return +(ws * 2.237).toFixed(2)
-    } else if (to == "kmph") {
+    } else if (to == "kmh") {
         return +(ws * 3.6).toFixed(2)
     }
-    return -1
 }
 
 
@@ -43,11 +43,11 @@ export function windSpeedMS(ws, to) {
  * hPa => atm
  */
 
-export function pressure_to_mmHg(p) {
+function pressure_to_mmHg(p) {
     return +(p * 0.75006).toFixed(4)
 }
 
-export function pressure_to_atm(p) {
+function pressure_to_atm(p) {
     return +(p / 1013.25).toFixed(2)
 }
 
@@ -58,10 +58,56 @@ export function pressure_to_atm(p) {
  * meters => miles
  */
 
-export function visib_to_km(v) {
+function visib_to_km(v) {
     return v / 1000
 }
 
-export function visib_to_miles(v) {
+function visib_to_miles(v) {
     return v / 1609.34
 }
+
+export const unitConversion = {
+    tempConversion(currValue, to) {
+        if (to == "f") return celsiusToFahrenheit(currValue);
+        if (to == "k") return celsiusToKelvin(currValue);
+        return currValue
+    },
+    windspeedConversion(currValue, to) {
+        if (to == "mih") return windSpeedMS(currValue, "mih");
+        if (to == "kmh") return windSpeedMS(currValue, "kmh")
+        return currValue
+    },
+    pressureConversion(currValue, to) {
+        if (to == "mmHg") return pressure_to_mmHg(currValue);
+        if (to == "atm") return pressure_to_atm(currValue);
+        return currValue
+    },
+    visibilityConversion(currValue, to) {
+        if (to == "km") return visib_to_km(currValue);
+        if (to == "miles") return visib_to_miles(currValue);
+        return currValue
+    }
+}
+// export function tempConversion(currValue, to) {
+//     if (to == "f") return celsiusToFahrenheit(currValue);
+//     if (to == "k") return celsiusToKelvin(currValue);
+//     return currValue
+// }
+
+// export function windspeedConversion(currValue, to) {
+//     if (to == "mih") return windSpeedMS(currValue, "mih");
+//     if (to == "kmh") return windSpeedMS(currValue, "kmh")
+//     return currValue
+// }
+
+// export function pressureConversion(currValue, to) {
+//     if (to == "mmHg") return pressure_to_mmHg(currValue);
+//     if (to == "atm") return pressure_to_atm(currValue);
+//     return currValue
+// }
+
+// export function visibilityConversion(currValue, to) {
+//     if (to == "km") return visib_to_km(currValue);
+//     if (to == "miles") return visib_to_miles(currValue);
+//     return currValue
+// }

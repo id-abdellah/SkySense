@@ -10,7 +10,9 @@ import { produce } from "immer";
  * actions
 **************************************************/
 export const globalActions = {
-    SET_CITY: "SET_CITY"
+    SET_CITY: "SET_CITY",
+    ADD_FAV_CITY: "ADD_FAV_CITY",
+    REMOVE_FAV_CITY: "REMOVE_FAV_CITY"
 }
 
 /*************************************************
@@ -21,12 +23,28 @@ const initialState = {
     city: {
         lat: 34.022405,
         lon: -6.834543,
-    }
+    },
+    favCities: []
 }
 
 function reducer(state, action) {
     return produce(state, (draft) => {
-        draft.city = action.payload
+        switch (action.type) {
+            case globalActions.SET_CITY:
+                draft.city = action.payload
+                break;
+            case globalActions.ADD_FAV_CITY:
+                draft.favCities.push(action.payload)
+                break;
+            case globalActions.REMOVE_FAV_CITY: {
+                const id = action.payload;
+                const newFavCitiesList = draft.favCities.filter(c => c.id !== id)
+                draft.favCities = newFavCitiesList
+                break
+            }
+            default:
+                break;
+        }
     })
 }
 

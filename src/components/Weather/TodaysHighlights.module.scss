@@ -1,0 +1,186 @@
+div.todaysHighlights {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    div.now {
+        .cityInfos {
+            display: flex;
+            align-items: center;
+            color: var(--on-surface);
+            font-size: 12px;
+            font-weight: 500;
+            gap: 15px;
+
+            >div {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+
+            >div:first-child {
+                .cityName {
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-block: 15px 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    div {
+                        font-size: 12px;
+                        color: var(--secondary);
+                        cursor: pointer;
+                    }
+                }
+
+                .status {
+                    color: var(--on-surface);
+                    font-size: 12px;
+                    text-transform: capitalize;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+
+                .temp {
+                    font-weight: 500;
+                    font-size: 40px;
+                    position: relative;
+                    width: fit-content;
+                }
+            }
+
+            >div:last-child {
+                display: grid;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 80px;
+
+                    @media (width >=767px) {
+                        width: 120px;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    div.highlights {
+        display: grid;
+        grid-template-areas:
+            "air air"
+            "sun sun"
+            "hum press"
+            "visib feels"
+        ;
+        gap: 15px;
+
+        >div {
+            background-color: var(--surface);
+            border-radius: var(--radius-medium);
+            padding: 8px;
+
+            .title {
+                color: var(--on-surface);
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .wrapper {
+                margin-top: 15px;
+            }
+        }
+
+        .airQuality {
+            grid-area: air;
+
+            .wrapper {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+
+                >div {
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+
+                    span:first-child {
+                        color: var(--on-surface);
+                        font-weight: 500;
+                        font-size: 12px;
+                    }
+
+                    span:last-child {
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+        .sun {
+            grid-area: sun;
+
+            .wrapper {
+                display: flex;
+                gap: 30px;
+                justify-content: space-around;
+
+                >div {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .icon img {
+                        width: 40px;
+                        display: block;
+                    }
+
+                    .time {
+                        display: flex;
+                        flex-direction: column;
+
+                        span:first-child {
+                            color: var(--on-surface);
+                            font-size: 12px;
+                            font-weight: 500;
+                        }
+
+                        span:last-child {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+
+        .humidiy {
+            grid-area: hum;
+        }
+
+        .pressure {
+            grid-area: press;
+        }
+
+        .visib {
+            grid-area: visib;
+        }
+
+        .feels {
+            grid-area: feels;
+        }
+
+        @media (width >=767px) {
+            grid-template-areas:
+                "air air sun sun"
+                "hum press visib feels"
+            ;
+        }
+    }
+}

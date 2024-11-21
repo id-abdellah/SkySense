@@ -31,6 +31,7 @@
     "highlights_pressure": "الضغط",
     "highlights_visibility": "مسافة الرؤية",
     "highlights_feels": "تبدو مثل",
-    "highlights_wind": "سرعة الرياح"
+    "highlights_wind": "سرعة الرياح",
+    "highlights_clouds": "نسبة الغيوم"
 
 }

@@ -7,7 +7,7 @@ import styles from "./TodaysHighlights.module.scss"
 import { getDate } from "../../utils/date.js"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBookmark, faCalendar, faEye } from "@fortawesome/free-regular-svg-icons"
-import { faBookmark as bookmarked, faDroplet, faGauge, faTemperatureHalf } from "@fortawesome/free-solid-svg-icons"
+import { faBookmark as bookmarked, faCloud, faDroplet, faGauge, faTemperatureHalf } from "@fortawesome/free-solid-svg-icons"
 import { faMapPin } from "@fortawesome/free-solid-svg-icons"
 import countriesCodes from "../../utils/countriesCode.json"
 import { unitConversion } from "../../utils/unitsConversions.js"
@@ -248,6 +248,14 @@ function Highlights({ data: weatherData, units }) {
                             alt="image that describes wind direction" />
                     </div>
                     <div>{unitConversion.windspeedConversion(weatherData.wind.speed, units.windSpeed)}</div>
+                </div>
+            </div>
+
+            <div className={styles.clouds}>
+                <div className={styles.title}>{t("highlights_clouds")}</div>
+                <div className={styles.wrapper}>
+                    <div><FontAwesomeIcon icon={faCloud} /></div>
+                    <div>{weatherData.clouds.all}%</div>
                 </div>
             </div>
         </div>

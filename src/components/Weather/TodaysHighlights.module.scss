@@ -80,7 +80,7 @@ div.todaysHighlights {
             "sun sun"
             "hum press"
             "visib feels"
-            "wind wind"
+            "wind clouds"
         ;
         gap: 15px;
 
@@ -165,7 +165,8 @@ div.todaysHighlights {
         .pressure,
         .visib,
         .feels,
-        .wind {
+        .wind,
+        .clouds {
             .wrapper {
                 display: flex;
                 align-items: center;
@@ -201,16 +202,20 @@ div.todaysHighlights {
 
             .wrapper {
                 img {
-                    width: 40px;
+                    width: 30px;
                 }
             }
+        }
+
+        .clouds {
+            grid-area: clouds;
         }
 
         @media (width >=767px) {
             grid-template-areas:
                 "air air sun sun"
                 "hum press visib feels"
-                "wind wind . ."
+                "wind wind clouds clouds"
             ;
         }
     }

@@ -31,5 +31,6 @@
     "highlights_pressure": "Pressure",
     "highlights_visibility": "Visibility",
     "highlights_feels": "Feels Like",
-    "highlights_wind": "Wind Speed"
+    "highlights_wind": "Wind Speed",
+    "highlights_clouds": "Clouds"
 }

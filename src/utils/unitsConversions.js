@@ -44,7 +44,7 @@ function windSpeedMS(ws, to) {
  */
 
 function pressure_to_mmHg(p) {
-    return +(p * 0.75006).toFixed(4)
+    return +(p * 0.75006).toFixed(2)
 }
 
 function pressure_to_atm(p) {
@@ -59,11 +59,11 @@ function pressure_to_atm(p) {
  */
 
 function visib_to_km(v) {
-    return v / 1000
+    return (v / 1000).toFixed(2)
 }
 
 function visib_to_miles(v) {
-    return v / 1609.34
+    return (v / 1609.34).toFixed(2)
 }
 
 export const unitConversion = {
@@ -73,9 +73,9 @@ export const unitConversion = {
         return currValue
     },
     windspeedConversion(currValue, to) {
-        if (to == "mih") return windSpeedMS(currValue, "mih");
-        if (to == "kmh") return windSpeedMS(currValue, "kmh")
-        return currValue
+        if (to == "mih") return windSpeedMS(currValue, "mih") + " mi/h";
+        if (to == "kmh") return windSpeedMS(currValue, "kmh") + " km/h"
+        return currValue + " m/s"
     },
     pressureConversion(currValue, to) {
         if (to == "mmHg") return pressure_to_mmHg(currValue);

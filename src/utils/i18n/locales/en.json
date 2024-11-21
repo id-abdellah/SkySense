@@ -30,5 +30,6 @@
     "highlights_humidity": "Humidity",
     "highlights_pressure": "Pressure",
     "highlights_visibility": "Visibility",
-    "highlights_feels": "Feels Like"
+    "highlights_feels": "Feels Like",
+    "highlights_wind": "Wind Speed"
 }

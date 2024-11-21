@@ -30,6 +30,7 @@
     "highlights_humidity": "مستوى الرطوبة",
     "highlights_pressure": "الضغط",
     "highlights_visibility": "مسافة الرؤية",
-    "highlights_feels": "تبدو مثل"
+    "highlights_feels": "تبدو مثل",
+    "highlights_wind": "سرعة الرياح"
 
 }

@@ -6,12 +6,13 @@ import { API } from "../../utils/api.js"
 import styles from "./TodaysHighlights.module.scss"
 import { getDate } from "../../utils/date.js"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBookmark, faCalendar } from "@fortawesome/free-regular-svg-icons"
-import { faBookmark as bookmarked } from "@fortawesome/free-solid-svg-icons"
+import { faBookmark, faCalendar, faEye } from "@fortawesome/free-regular-svg-icons"
+import { faBookmark as bookmarked, faDroplet, faGauge, faTemperatureHalf } from "@fortawesome/free-solid-svg-icons"
 import { faMapPin } from "@fortawesome/free-solid-svg-icons"
 import countriesCodes from "../../utils/countriesCode.json"
 import { unitConversion } from "../../utils/unitsConversions.js"
 import { useTranslation } from "react-i18next"
+import { cityAddedToFavorites, cityRemovedFromFavorites } from "../../utils/toasts.js"
 
 
 export default function TodaysHighlights() {
@@ -30,7 +31,8 @@ export default function TodaysHighlights() {
         queryFn: () => API.currentWeather(city.lat, city.lon, settingsState.lang),
         queryKey: ["currentWeather", city.lang, city.lon, settingsState.lang],
         refetchOnWindowFocus: false,
-        cacheTime: 0
+        cacheTime: 0,
+        staleTime: 0
     })
 
     if (isLoading) return <div>Loading ...</div>
@@ -46,6 +48,7 @@ export default function TodaysHighlights() {
             />
             <Highlights
                 data={currentWeatherData}
+                units={settingsState.units}
             />
         </div>
     )
@@ -75,6 +78,7 @@ function Now({ data, units, favCities, globalDispatch }) {
                 type: globalActions.REMOVE_FAV_CITY,
                 payload: id
             })
+            cityRemovedFromFavorites(name)
             return
         }
         globalDispatch({
@@ -85,6 +89,7 @@ function Now({ data, units, favCities, globalDispatch }) {
                 id
             }
         })
+        cityAddedToFavorites(name)
     }
 
     // checks if city is already bookmarked in favourites cities
@@ -138,7 +143,7 @@ function Now({ data, units, favCities, globalDispatch }) {
  * SubComponenet => "Highlights" component
  */
 
-function Highlights({ data: weatherData }) {
+function Highlights({ data: weatherData, units }) {
     const { t } = useTranslation()
 
     const { data: airPollutionData, isLoading, isError } = useQuery({
@@ -148,6 +153,7 @@ function Highlights({ data: weatherData }) {
         cacheTime: 0
     })
 
+
     if (isLoading) return <div>Loading ...</div>
     if (isError) return <div>Error Occured</div>
 
@@ -155,7 +161,7 @@ function Highlights({ data: weatherData }) {
         <div className={styles.highlights}>
 
             <div className={styles.airQuality}>
-                <div className={styles.title}>{t("highlights_airQuality")}</div>
+                <div className={styles.title}>{t("highlights_airQuality")} (µg/m<sup>3</sup>)</div>
                 <div className={styles.wrapper}>
                     <div>
                         <span>O3</span>
@@ -202,18 +208,47 @@ function Highlights({ data: weatherData }) {
 
             <div className={styles.humidiy}>
                 <div className={styles.title}>{t("highlights_humidity")}</div>
+                <div className={styles.wrapper}>
+                    <div><FontAwesomeIcon icon={faDroplet} /></div>
+                    <div>{weatherData.main.humidity}%</div>
+                </div>
             </div>
 
             <div className={styles.pressure}>
                 <div className={styles.title}>{t("highlights_pressure")}</div>
+                <div className={styles.wrapper}>
+                    <div><FontAwesomeIcon icon={faGauge} /></div>
+                    <div>{unitConversion.pressureConversion(weatherData.main.pressure, units.pressure)} {units.pressure}</div>
+                </div>
             </div>
 
             <div className={styles.visib}>
                 <div className={styles.title}>{t("highlights_visibility")}</div>
+                <div className={styles.wrapper}>
+                    <div><FontAwesomeIcon icon={faEye} /></div>
+                    <div>{unitConversion.visibilityConversion(weatherData.visibility, units.distance)} {units.distance == "meters" ? "m" : units.distance == "miles" ? "mi" : units.distance}</div>
+                </div>
             </div>
 
             <div className={styles.feels}>
                 <div className={styles.title}>{t("highlights_feels")}</div>
+                <div className={styles.wrapper}>
+                    <div><FontAwesomeIcon icon={faTemperatureHalf} /></div>
+                    <div>{unitConversion.tempConversion(weatherData.main.feels_like, units.temperature)} °{units.temperature.toUpperCase()}</div>
+                </div>
+            </div>
+
+            <div className={styles.wind}>
+                <div className={styles.title}>{t("highlights_wind")}</div>
+                <div className={styles.wrapper}>
+                    <div>
+                        <img
+                            style={{ transform: `rotate(${weatherData.wind.deg}deg)` }}
+                            src="weather-icons/direction.png"
+                            alt="image that describes wind direction" />
+                    </div>
+                    <div>{unitConversion.windspeedConversion(weatherData.wind.speed, units.windSpeed)}</div>
+                </div>
             </div>
         </div>
     )

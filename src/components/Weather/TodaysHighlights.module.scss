@@ -80,6 +80,7 @@ div.todaysHighlights {
             "sun sun"
             "hum press"
             "visib feels"
+            "wind wind"
         ;
         gap: 15px;
 
@@ -160,6 +161,25 @@ div.todaysHighlights {
             }
         }
 
+        .humidiy,
+        .pressure,
+        .visib,
+        .feels,
+        .wind {
+            .wrapper {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: 500;
+
+                div:last-child {
+                    direction: ltr;
+                }
+            }
+        }
+
         .humidiy {
             grid-area: hum;
         }
@@ -176,10 +196,21 @@ div.todaysHighlights {
             grid-area: feels;
         }
 
+        .wind {
+            grid-area: wind;
+
+            .wrapper {
+                img {
+                    width: 40px;
+                }
+            }
+        }
+
         @media (width >=767px) {
             grid-template-areas:
                 "air air sun sun"
                 "hum press visib feels"
+                "wind wind . ."
             ;
         }
     }

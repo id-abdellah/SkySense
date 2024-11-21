@@ -26,3 +26,27 @@ export function geolocationSuccessNotify() {
         }
     })
 }
+
+/**
+ * Cities Favorite list
+ */
+
+export function cityAddedToFavorites(cityName) {
+    toast.success(`"${cityName}" has been added to favorites list`, {
+        style: {
+            backgroundColor: "#557C56",
+            color: "white",
+            direction: "ltr"
+        }
+    })
+}
+
+export function cityRemovedFromFavorites(cityName) {
+    toast.success(`"${cityName}" removed from favorites list`, {
+        style: {
+            backgroundColor: "#557C56",
+            color: "white",
+            direction: "ltr"
+        },
+    })
+}

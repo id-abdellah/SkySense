@@ -10,6 +10,10 @@
     --radius-circle: 50%;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 *,
 *::after,
 *::before {
@@ -101,6 +105,7 @@ h6 {
     .container {
         margin-inline: auto;
         width: 1100px;
+        min-height: 100vh;
     }
 }
 

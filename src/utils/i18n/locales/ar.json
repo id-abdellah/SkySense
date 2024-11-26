@@ -32,6 +32,7 @@
     "highlights_visibility": "مسافة الرؤية",
     "highlights_feels": "تبدو مثل",
     "highlights_wind": "سرعة الرياح",
-    "highlights_clouds": "نسبة الغيوم"
+    "highlights_clouds": "نسبة الغيوم",
 
+    "forecast": "توقعات الطقس للايام القادمة"
 }

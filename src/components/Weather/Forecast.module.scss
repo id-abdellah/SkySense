@@ -1,3 +1,56 @@
 .forecast {
-    outline: 1px solid lime;
+    // background-color: var(--surface);
+    border-radius: var(--radius-medium);
+
+    .dayWrapper {
+
+        .dayTitle {
+            color: var(--on-surface);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+
+        .hourForecastWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-block: 15px;
+            justify-content: center;
+
+            >div {
+                background-color: var(--surface);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 100px;
+                padding: 8px 0;
+                border-radius: var(--radius-medium);
+
+                .hour,
+                .temp {
+                    font-weight: 500;
+                    font-size: 16px;
+                    direction: ltr;
+                }
+
+                .icon {
+                    img {
+                        width: 40px;
+                    }
+                }
+            }
+
+            @media (width >=767px) {
+                justify-content: start;
+
+                >div {
+                    width: calc((100% / 8) - 10px);
+                }
+            }
+        }
+    }
 }

@@ -1,5 +1,19 @@
+.divider {
+    width: 50%;
+    height: 2px;
+    border-radius: var(--radius-circle);
+    margin: 20px auto;
+    background-color: var(--on-surface);
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
 .forecast {
-    // background-color: var(--surface);
+    background-color: var(--surface);
+    padding: 15px;
     border-radius: var(--radius-medium);
 
     .dayWrapper {
@@ -22,7 +36,7 @@
             justify-content: center;
 
             >div {
-                background-color: var(--surface);
+                background-color: var(--bg);
                 display: flex;
                 flex-direction: column;
                 align-items: center;

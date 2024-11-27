@@ -18,11 +18,12 @@ export default function Forecast() {
         queryKey: ["4DaysForecast", city.lat, city.lon]
     })
 
-    if (isLoading) return <div>Loading...</div>;
-    if (isError) return <div>Error occured</div>;
+    if (isLoading) return;
+    if (isError) return <pre>Error occured when retrieving forcasts data :(. Please try again later</pre>;
 
     return (
         <>
+            <div className={styles.divider}></div>
             <h3>{t("forecast")}</h3>
             <div className={styles.forecast}>
                 {

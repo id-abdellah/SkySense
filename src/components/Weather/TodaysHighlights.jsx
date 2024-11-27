@@ -13,6 +13,7 @@ import countriesCodes from "../../utils/countriesCode.json"
 import { unitConversion } from "../../utils/unitsConversions.js"
 import { useTranslation } from "react-i18next"
 import { cityAddedToFavorites, cityRemovedFromFavorites } from "../../utils/toasts.js"
+import Loader from "./Loader.jsx"
 
 
 export default function TodaysHighlights() {
@@ -31,12 +32,10 @@ export default function TodaysHighlights() {
         queryFn: () => API.currentWeather(city.lat, city.lon, settingsState.lang),
         queryKey: ["currentWeather", city.lang, city.lon, settingsState.lang],
         refetchOnWindowFocus: false,
-        cacheTime: 0,
-        staleTime: 0
     })
 
-    if (isLoading) return <div>Retrieving Data...</div>
-    if (isError) return <div>Error Occured</div>
+    if (isLoading) return <Loader />
+    if (isError) return <code>Error occured when retrieving Today Highlights data:(. Please try again later</code>
 
     return (
         <div className={styles.todaysHighlights}>
@@ -149,13 +148,12 @@ function Highlights({ data: weatherData, units }) {
     const { data: airPollutionData, isLoading, isError } = useQuery({
         queryFn: () => API.airPollution(weatherData.coord.lat, weatherData.coord.lon),
         queryKey: ["airePollution", weatherData.coord.lat, weatherData.coord.lon],
-        refetchOnWindowFocus: false,
-        cacheTime: 0
+        refetchOnWindowFocus: false
     })
 
 
-    if (isLoading) return <div>Loading ...</div>
-    if (isError) return <div>Error Occured</div>
+    if (isLoading) return
+    if (isError) return <pre>Error occured when retrieving data :(. Please try again later</pre>
 
     return (
         <div className={styles.highlights}>

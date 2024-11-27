@@ -88,26 +88,3 @@ export const unitConversion = {
         return currValue
     }
 }
-// export function tempConversion(currValue, to) {
-//     if (to == "f") return celsiusToFahrenheit(currValue);
-//     if (to == "k") return celsiusToKelvin(currValue);
-//     return currValue
-// }
-
-// export function windspeedConversion(currValue, to) {
-//     if (to == "mih") return windSpeedMS(currValue, "mih");
-//     if (to == "kmh") return windSpeedMS(currValue, "kmh")
-//     return currValue
-// }
-
-// export function pressureConversion(currValue, to) {
-//     if (to == "mmHg") return pressure_to_mmHg(currValue);
-//     if (to == "atm") return pressure_to_atm(currValue);
-//     return currValue
-// }
-
-// export function visibilityConversion(currValue, to) {
-//     if (to == "km") return visib_to_km(currValue);
-//     if (to == "miles") return visib_to_miles(currValue);
-//     return currValue
-// }

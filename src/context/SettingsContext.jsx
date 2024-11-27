@@ -32,14 +32,6 @@ const initState = {
     lang: "en"
 }
 
-/**
- * Load persisted state from local storage
- */
-
-function loadState() {
-    const savedState = localStorage.getItem("appSettingsState");
-    return savedState ? JSON.parse(savedState) : initState
-}
 
 function reducer(state, action) {
     return produce(state, (draft) => {
@@ -56,6 +48,15 @@ function reducer(state, action) {
                 break;
         }
     })
+}
+
+/**
+ * Load persisted state from local storage
+ */
+
+function loadState() {
+    const savedState = localStorage.getItem("appSettingsState");
+    return savedState ? JSON.parse(savedState) : initState
 }
 
 /***********************************************

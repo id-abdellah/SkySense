@@ -21,10 +21,19 @@ export const globalActions = {
 
 const initialState = {
     city: {
-        lat: 34.022405,
-        lon: -6.834543,
+        lat: 33.5945,
+        lon: -7.62,
     },
     favCities: []
+}
+
+/**
+ * Load persisted state from local storage
+ */
+
+function loadState() {
+    const savedState = localStorage.getItem("appGlobalState");
+    return savedState ? JSON.parse(savedState) : initialState
 }
 
 function reducer(state, action) {
@@ -48,6 +57,7 @@ function reducer(state, action) {
     })
 }
 
+
 /*************************************************
  * Global Context Provider
 **************************************************/
@@ -56,9 +66,10 @@ const GlobalContext = createContext()
 
 
 export function GlobalContextProvider({ children }) {
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, loadState())
 
     useEffect(() => {
+        localStorage.setItem("appGlobalState", JSON.stringify(state))
         console.log("Global State", state)
     }, [state])
 

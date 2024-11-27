@@ -1,0 +1,19 @@
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    border-color:
+        var(--on-surface) transparent var(--on-surface) var(--on-surface);
+    border-radius: var(--radius-circle);
+    animation: spinner .8s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

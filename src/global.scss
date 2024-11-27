@@ -113,55 +113,72 @@ h6 {
 
 /* Themes Palette*/
 
+// body[data-theme="dark"] {
+//     --bg: #0b131e;
+//     --surface: #202b3b;
+//     --primary: #c38fff;
+//     --secondary: #03dac6;
+
+//     --on-bg: #dde0e4;
+//     --on-surface: #8a909a;
+//     --on-primary: #111;
+//     --on-secondary: #111;
+
+//     --hover-bg: #101a28;
+//     --hover-surface: #293648;
+//     --hover-primary: #af6dfa;
+//     --hover-secondary: #26e0cd;
+// }
+
 body[data-theme="dark"] {
-    --bg: #0b131e;
-    --surface: #202b3b;
-    --primary: #c38fff;
-    --secondary: #03dac6;
+    --bg: #121212;
+    --surface: #1e1e1e;
+    --primary: #bb86fc;
+    --secondary: #03dac5;
 
-    --on-bg: #dde0e4;
-    --on-surface: #8a909a;
-    --on-primary: #111;
-    --on-secondary: #111;
+    --on-bg: #e0e0e0;
+    --on-surface: #a1a1a1;
+    --on-primary: #000;
+    --on-secondary: #000;
 
-    --hover-bg: #101a28;
-    --hover-surface: #293648;
-    --hover-primary: #af6dfa;
-    --hover-secondary: #26e0cd;
+    --hover-bg: #1a1a1a;
+    --hover-surface: #2c2c2c;
+    --hover-primary: #9e6ef3;
+    --hover-secondary: #29b3ab;
 }
 
-// body[data-theme="dark"] {
-//     --bg: #121212;
-//     --surface: #1e1e1e;
-//     --primary: #bb86fc;
-//     --secondary: #03dac5;
+// body[data-theme="light"] {
+//     --bg: #f9f9f9;
+//     --surface: #eaeaea;
+//     --primary: #6a5acd;
+//     --secondary: #20b2aa;
 
-//     --on-bg: #e0e0e0;
-//     --on-surface: #a1a1a1;
-//     --on-primary: #000;
-//     --on-secondary: #000;
+//     --on-bg: #222222;
+//     --on-surface: #504f4f;
+//     --on-primary: #ffffff;
+//     --on-secondary: #ffffff;
 
-//     --hover-bg: #1a1a1a;
-//     --hover-surface: #2c2c2c;
-//     --hover-primary: #9e6ef3;
-//     --hover-secondary: #29b3ab;
+//     --hover-bg: #f1f1f1;
+//     --hover-surface: #dcdcdc;
+//     --hover-primary: #7a67df;
+//     --hover-secondary: #32c2b4;
 // }
 
 body[data-theme="light"] {
-    --bg: #f9f9f9;
-    --surface: #eaeaea;
+    --bg: #f9fafb;
+    --surface: #eceff1;
     --primary: #6a5acd;
     --secondary: #20b2aa;
 
-    --on-bg: #222222;
-    --on-surface: #504f4f;
+    --on-bg: #1a1a1a;
+    --on-surface: #333333;
     --on-primary: #ffffff;
     --on-secondary: #ffffff;
 
-    --hover-bg: #f1f1f1;
-    --hover-surface: #dcdcdc;
-    --hover-primary: #7a67df;
-    --hover-secondary: #32c2b4;
+    --hover-bg: #f0f1f3;
+    --hover-surface: #dfe3e6;
+    --hover-primary: #3f51b5;
+    --hover-secondary: #1e867f;
 }
 
 

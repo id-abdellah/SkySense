@@ -13,8 +13,7 @@ import countriesCodes from "../../utils/countriesCode.json"
 import { unitConversion } from "../../utils/unitsConversions.js"
 import { useTranslation } from "react-i18next"
 import { cityAddedToFavorites, cityRemovedFromFavorites } from "../../utils/toasts.js"
-import Spinner from "../spinner.jsx"
-
+import Loader from "../Loader.jsx"
 
 export default function TodaysHighlights() {
     const {
@@ -34,7 +33,7 @@ export default function TodaysHighlights() {
         refetchOnWindowFocus: false,
     })
 
-    if (isLoading) return <Spinner />
+    if (isLoading) return <Loader />
     if (isError) return <code>Error occured when retrieving Today Highlights data:(. Please try again later</code>
 
     return (

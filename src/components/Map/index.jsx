@@ -12,7 +12,7 @@ import { unitConversion } from "../../utils/unitsConversions"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
-import Spinner from "../spinner.jsx"
+import Loader from "../Loader.jsx"
 
 // const customIcon = new Icon({
 //     iconUrl: "https://cdn-icons-png.flaticon.com/128/854/854853.png",
@@ -75,7 +75,7 @@ export default function MapPage() {
     const isLoading = favCitiesData.some(query => query.isLoading)
     const isError = favCitiesData.some(query => query.isError)
 
-    if (isLoading) return <Spinner />
+    if (isLoading) return <Loader />
     if (isError) return <div>Error occured</div>;
 
     return (

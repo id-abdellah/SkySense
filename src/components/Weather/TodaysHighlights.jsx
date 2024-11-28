@@ -13,7 +13,7 @@ import countriesCodes from "../../utils/countriesCode.json"
 import { unitConversion } from "../../utils/unitsConversions.js"
 import { useTranslation } from "react-i18next"
 import { cityAddedToFavorites, cityRemovedFromFavorites } from "../../utils/toasts.js"
-import Loader from "./Loader.jsx"
+import Spinner from "../spinner.jsx"
 
 
 export default function TodaysHighlights() {
@@ -34,7 +34,7 @@ export default function TodaysHighlights() {
         refetchOnWindowFocus: false,
     })
 
-    if (isLoading) return <Loader />
+    if (isLoading) return <Spinner />
     if (isError) return <code>Error occured when retrieving Today Highlights data:(. Please try again later</code>
 
     return (
@@ -102,14 +102,14 @@ function Now({ data, units, favCities, globalDispatch }) {
 
                 <div className={styles.cityInfos}>
                     <div><FontAwesomeIcon icon={faCalendar} /> {getDate.getCurrentDate(i18n.language)}</div>
-                    <div><FontAwesomeIcon icon={faMapPin} /> {countriesCodes[data.sys.country][i18n.language]}</div>
+                    <div><FontAwesomeIcon icon={faMapPin} /> {countriesCodes[data.sys.country] ? countriesCodes[data.sys.country][i18n.language] : "Unknown"}</div>
                 </div>
 
                 <div className={styles.wrapper}>
 
                     <div>
                         <div className={styles.cityName}>
-                            {data.name}
+                            {data.name ? data.name : "Unknown City"}
                             <div onClick={() => addFavCity()}>
                                 {
                                     isCityBookmarked()

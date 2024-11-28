@@ -1,5 +1,5 @@
-import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet"
-import { useGlobalContext } from "../../context/GlobalContext"
+import { MapContainer, Marker, TileLayer, useMap, useMapEvent } from "react-leaflet"
+import { globalActions, useGlobalContext } from "../../context/GlobalContext"
 import { useSettingsContext } from "../../context/SettingsContext"
 import "./Map.scss"
 import "leaflet/dist/leaflet.css"
@@ -9,6 +9,10 @@ import { useQueries } from "@tanstack/react-query"
 import { API } from "../../utils/api"
 import { useTranslation } from "react-i18next"
 import { unitConversion } from "../../utils/unitsConversions"
+import Spinner from "../spinner"
+import { useNavigate } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 
 // const customIcon = new Icon({
 //     iconUrl: "https://cdn-icons-png.flaticon.com/128/854/854853.png",
@@ -19,25 +23,28 @@ import { unitConversion } from "../../utils/unitsConversions"
 function CustomZoomControl() {
     const map = useMap();
 
-    const zoomIn = () => {
+    const zoomIn = (e) => {
+        e.stopPropagation()
         map.zoomIn()
     }
-    const zoomOut = () => {
+    const zoomOut = (e) => {
+        e.stopPropagation()
         map.zoomOut()
     }
 
     return (
         <div className="customZoomControls">
-            <button onClick={zoomIn}>+</button>
-            <button onClick={zoomOut}>-</button>
+            <button className="no-map-click" onClick={(e) => zoomIn(e)}>+</button>
+            <button className="no-map-click" onClick={(e) => zoomOut(e)}>-</button>
         </div>
     )
 }
 
 export default function MapPage() {
-    const { i18n } = useTranslation();
+    const navigate = useNavigate()
+    const { t, i18n } = useTranslation();
     const { state: { units } } = useSettingsContext()
-    const { state: { favCities, city } } = useGlobalContext();
+    const { state: { favCities, city }, dispatch: globalDispatch } = useGlobalContext();
 
     const favCitiesData = useQueries({
         queries: favCities.map(city => {
@@ -49,14 +56,40 @@ export default function MapPage() {
         })
     })
 
+    const MapClickHandler = () => {
+        useMapEvent("click", (e) => {
+            if (e.originalEvent.target.classList.contains("no-map-click")) return
+            const { lat, lng: lon } = e.latlng
+            const payload = {
+                lat,
+                lon
+            }
+            globalDispatch({
+                type: globalActions.SET_CITY,
+                payload
+            })
+            navigate("/")
+        })
+    }
+
     const isLoading = favCitiesData.some(query => query.isLoading)
     const isError = favCitiesData.some(query => query.isError)
 
-    if (isLoading) return <div>Loading Map data ...</div>;
+    if (isLoading) return <Spinner />
     if (isError) return <div>Error occured</div>;
 
     return (
         <section className="mapPage">
+            <div className="instructions">
+                <div>
+                    <span><FontAwesomeIcon icon={faCircleInfo} /></span>
+                    <span>{t("mapInstruction1")}</span>
+                </div>
+                <div>
+                    <span><FontAwesomeIcon icon={faCircleInfo} /></span>
+                    <span>{t("mapInstruction2")}</span>
+                </div>
+            </div>
             <MapContainer center={[city.lat, city.lon]} zoom={6} attributionControl={false} zoomControl={false} >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -97,6 +130,7 @@ export default function MapPage() {
                     <CustomZoomControl />
                 </MarkerClusterGroup>
 
+                <MapClickHandler />
             </MapContainer>
         </section>
     )

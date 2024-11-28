@@ -34,5 +34,8 @@
     "highlights_wind": "Wind Speed",
     "highlights_clouds": "Clouds",
 
-     "forecast": "Forecasts"
+    "forecast": "Forecasts",
+
+    "mapInstruction1": "The map primarily displays the weather conditions in your favorite cities.",
+    "mapInstruction2": "Click on any city on the map to show detailed weather information."
 }

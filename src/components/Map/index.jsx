@@ -9,10 +9,10 @@ import { useQueries } from "@tanstack/react-query"
 import { API } from "../../utils/api"
 import { useTranslation } from "react-i18next"
 import { unitConversion } from "../../utils/unitsConversions"
-import Spinner from "../spinner"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
+import Spinner from "../Spinner.jsx"
 
 // const customIcon = new Icon({
 //     iconUrl: "https://cdn-icons-png.flaticon.com/128/854/854853.png",

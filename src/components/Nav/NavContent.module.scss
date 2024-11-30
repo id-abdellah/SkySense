@@ -15,6 +15,7 @@ section.navContent {
         font-weight: 600;
         transition: .3s;
         position: relative;
+        direction: ltr;
 
         span:first-child {
             color: var(--on-bg);

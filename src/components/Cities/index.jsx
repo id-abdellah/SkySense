@@ -57,7 +57,7 @@ export default function MyCities() {
                         return (
                             <div className={styles.cityCard} key={data.id}>
                                 <div className={styles.cityName}>
-                                    {data.name}. <br />
+                                    {data.name} <br />
                                     <span>{data.sys.country in countriesCode ? countriesCode[data.sys.country][language] : "unknown"}</span>
                                 </div>
                                 <div className={styles.weatherStatus}>

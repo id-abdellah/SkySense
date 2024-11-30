@@ -8,18 +8,61 @@ section.navContent {
     height: 100%;
 
     div.logo {
-        font-size: 25px;
-        color: var(--primary);
-        width: 40px;
-        height: 40px;
-        display: grid;
-        place-content: center;
-        border-radius: var(--radius-small);
+        font-size: 15px;
+        width: 60px;
         cursor: pointer;
         transition: .3s;
+        font-weight: 600;
+        transition: .3s;
+        position: relative;
+
+        span:first-child {
+            color: var(--on-bg);
+            transition: .3s;
+        }
+
+        span:last-child {
+            color: var(--primary);
+            transition: .3s;
+        }
+
+        &::after {
+            content: "";
+            width: 40%;
+            height: 1px;
+            background-color: var(--primary);
+            position: absolute;
+            bottom: 0;
+            transition: .3s;
+        }
+
+        &::before {
+            content: "";
+            width: 0%;
+            height: 1px;
+            background-color: var(--primary);
+            position: absolute;
+            bottom: 0;
+            left: 40%;
+            transition: .3s;
+        }
 
         &:hover {
-            outline: 1px solid lime;
+            &::before {
+                width: calc(100% - 40%);
+            }
+
+            &::after {
+                background-color: var(--on-bg);
+            }
+
+            span:first-child {
+                color: var(--primary);
+            }
+
+            span:last-child {
+                color: var(--on-bg);
+            }
         }
     }
 

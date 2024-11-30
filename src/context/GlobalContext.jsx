@@ -40,6 +40,7 @@ function reducer(state, action) {
     return produce(state, (draft) => {
         switch (action.type) {
             case globalActions.SET_CITY:
+                if (!("lat" in action.payload && "lon" in action.payload)) return;
                 draft.city = action.payload
                 break;
             case globalActions.ADD_FAV_CITY:

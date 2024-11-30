@@ -1,0 +1,71 @@
+.favCitiesSection {
+    margin-top: 20px;
+
+    .wrapper {
+        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+
+        .cityCard {
+            border-radius: var(--radius-medium);
+            padding: 8px;
+            background-color: var(--surface);
+            display: grid;
+            grid-template-rows: subgrid;
+            grid-row: span 4;
+
+
+            .cityName span {
+                color: var(--on-surface);
+                font-size: 12px;
+            }
+
+            .cityName,
+            .temp {
+                font-size: 16px;
+                font-weight: 500;
+                direction: ltr;
+                text-align: center;
+            }
+
+            .weatherStatus {
+                margin: 0 auto;
+
+                img {
+                    width: 60px;
+                }
+            }
+
+            .action {
+                display: flex;
+                gap: 4px;
+
+                button {
+                    display: block;
+                    font-weight: 500;
+                    transition: .3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        filter: brightness(80%);
+                    }
+                }
+
+                button:first-child {
+                    background-color: var(--primary);
+                    font-size: 12px;
+                    padding: 4px;
+                    width: 80%;
+                    flex: 1;
+                    border-radius: var(--radius-small);
+                }
+
+                button:last-child {
+                    color: var(--secondary);
+                }
+            }
+        }
+    }
+
+}

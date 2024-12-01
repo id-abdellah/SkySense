@@ -121,7 +121,7 @@ function Now({ data, units, favCities, globalDispatch }) {
                         </div>
                         <div className={styles.status}>{data.weather[0].description}</div>
                         <div className={styles.temp}>
-                            {unitConversion.tempConversion(data.main.temp, units.temperature)}°
+                            {unitConversion.tempConversion(data.main.temp, units.temperature)} °{units.temperature.toUpperCase()}
                         </div>
                     </div>
 

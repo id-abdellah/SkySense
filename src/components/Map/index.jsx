@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import Loader from "../Loader.jsx"
+import { useEffect } from "react"
 
 // const customIcon = new Icon({
 //     iconUrl: "https://cdn-icons-png.flaticon.com/128/854/854853.png",
@@ -45,6 +46,10 @@ export default function MapPage() {
     const { t, i18n } = useTranslation();
     const { state: { units } } = useSettingsContext()
     const { state: { favCities, city }, dispatch: globalDispatch } = useGlobalContext();
+
+    useEffect(() => {
+        document.title = "Map view - SkySense"
+    }, [])
 
     const favCitiesData = useQueries({
         queries: favCities.map(city => {

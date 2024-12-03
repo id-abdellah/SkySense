@@ -9,12 +9,19 @@ import { cityRemovedFromFavorites } from "../../utils/toasts"
 import countriesCode from "../../utils/countriesCode.json"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 
 export default function MyCities() {
     const { state: { favCities }, dispatch: globalDispatch } = useGlobalContext()
     const { state: { units } } = useSettingsContext()
     const { t, i18n: { language } } = useTranslation()
     const navigate = useNavigate()
+
+    useEffect(() => {
+        document.title = "My cities - SkySense"
+    }, [])
+
+    // delete a city from bookmark list
     const unbookmarkHandler = (cityName, cityId) => {
         const confirmed = confirm(`You wanna delete "${cityName}" city from your favorites list?`);
         if (!confirmed) return;
@@ -25,6 +32,7 @@ export default function MyCities() {
         cityRemovedFromFavorites(cityName)
     }
 
+    // see city weather details
     const seeDetailsHandler = (coords) => {
         globalDispatch({
             type: globalActions.SET_CITY,

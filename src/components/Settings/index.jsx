@@ -14,6 +14,7 @@ export default function SettingsPage() {
 
     useEffect(() => {
         setNewSettings(structuredClone(currentSettings))
+        document.title = "Settings - SkySense"
     }, [currentSettings])
 
 

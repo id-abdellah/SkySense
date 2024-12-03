@@ -59,7 +59,7 @@ Check out the live version here: [Live Demo Link](https://openskysense.netlify.a
 2. **Navigate to the Project Directory**
 
    ```bash
-   cd <project_directory_name>
+   cd SkySense
    ```
 
 3. **Install Dependencies**
@@ -94,4 +94,4 @@ Check out the live version here: [Live Demo Link](https://openskysense.netlify.a
 
 ## 📄 License
 
-This project is licensed under the [MIT LICENSE](./LICENSE)
+This project is licensed under the [MIT LICENSE](https://choosealicense.com/licenses/mit/)

@@ -20,6 +20,8 @@ Check out the live version here: [Live Demo Link](https://openskysense.netlify.a
 - 👆 **On-Map Weather Updates**: Click any location on the map to view its current weather.
 - 📍 **Current Location Weather**: Quickly access weather updates for your current location.
 - 🔄 **Unit Customization**: Toggle between units for temperature, wind speed, pressure, and more.
+- 😎 **Progressive Web App (PWA)**
+  - This web app is a **Progressive Web App (PWA)**, which means it can be installed on your mobile or computer device and used offline, providing a native-like experience.
 
 ## 🛠️ Tech Stak
 

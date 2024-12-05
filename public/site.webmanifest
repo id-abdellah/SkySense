@@ -29,6 +29,34 @@
       "form_factor": "narrow"
     }
   ],
+  "shortcuts": [
+    {
+      "name": "Favorites Cities",
+      "short_name": "My Cities",
+      "description": "View weather status in cities you are interested",
+      "url": "/mycities",
+      "icons": [
+        {
+          "src": "/shortcuts/favorites_icon_shortcut.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Map view",
+      "short_name": "Map",
+      "description": "Select any place in the map to see his weather conditions in the current time",
+      "url": "/map",
+      "icons": [
+        {
+          "src": "/shortcuts/map_icon_shortcut.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",

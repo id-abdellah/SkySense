@@ -4,7 +4,7 @@
     .wrapper {
         gap: 15px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 10px;
 
         .cityCard {
@@ -69,4 +69,18 @@
         }
     }
 
+
+    /* when favorite list is empty */
+
+    .emptyIcon {
+        width: fit-content;
+        margin: 40px auto 0;
+    }
+
+    .emptyText {
+        color: var(--on-surface);
+        text-align: center;
+        margin-top: 8px;
+        font-size: 14px;
+    }
 }

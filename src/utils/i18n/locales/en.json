@@ -39,5 +39,7 @@
     "mapInstruction1": "The map primarily displays the weather conditions in your favorite cities.",
     "mapInstruction2": "Click on any city on the map to show detailed weather information.",
 
-    "favPage_seeDetails": "See Details"
+    "favPage_seeDetails": "See Details",
+
+    "favPage_empty": "You have not added any city to your favorites yet."
 }

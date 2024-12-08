@@ -8,10 +8,8 @@
     --radius-medium: 8px;
     --radius-large: 16px;
     --radius-circle: 50%;
-}
 
-::-webkit-scrollbar {
-    width: 0px;
+    scrollbar-width: none;
 }
 
 *,
@@ -26,7 +24,7 @@
 
 body {
     line-height: 1.5;
-    font-family: 'Segoe UI';
+    font-family: system-ui;
     -webkit-font-smoothing: antialiased;
     background-color: var(--bg);
     color: var(--on-bg);

@@ -72,11 +72,13 @@ function Now({ data, units, favCities, globalDispatch }) {
         const isExist = isCityBookmarked();
 
         if (isExist) {
-            globalDispatch({
-                type: globalActions.REMOVE_FAV_CITY,
-                payload: id
-            })
-            cityRemovedFromFavorites(name)
+            if (confirm("Are you sure to remove " + name + " from favortires")) {
+                globalDispatch({
+                    type: globalActions.REMOVE_FAV_CITY,
+                    payload: id
+                })
+                cityRemovedFromFavorites(name)
+            }
             return
         }
         globalDispatch({

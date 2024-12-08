@@ -14,7 +14,6 @@ section.navContent {
 
     div.logo {
         font-size: 15px;
-        width: 60px;
         cursor: pointer;
         transition: .3s;
         font-family: "Excalidraw";
@@ -39,7 +38,8 @@ section.navContent {
             height: 1px;
             background-color: var(--primary);
             position: absolute;
-            bottom: 0;
+            bottom: 0px;
+            left: 0;
             transition: .3s;
         }
 
